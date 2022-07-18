@@ -3,17 +3,17 @@ import { Notepad } from "./entities/Notepad";
 import { Product } from "./entities/Product";
 import { MyMap } from "./common/MyMap";
 
-const showData = (entity: unknown): void => {
-  if (entity instanceof Book) {
-    console.log(
-      `Книга - ${entity.title} - ${entity.author} - ${getPrice(entity)}`
-    );
-  } else if (entity instanceof Notepad) {
-    console.log(`Блокнот - ${getPrice(entity)}`);
-  }
-};
+// const showData = (entity: unknown): void => {
+//   if (entity instanceof Book) {
+//     console.log(
+//       `Книга - ${entity.title} - ${entity.author} - ${getPrice(entity)}`
+//     );
+//   } else if (entity instanceof Notepad) {
+//     console.log(`Блокнот - ${getPrice(entity)}`);
+//   }
+// };
 
-const getPrice = (entity: Book | Notepad): string => {
+export const getPrice = (entity: Book | Notepad): string => {
   return entity.price ? entity.price.toString() : "не продается";
 };
 

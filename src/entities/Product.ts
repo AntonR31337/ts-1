@@ -1,4 +1,7 @@
 import { IProduct } from "../types/Product";
+import { Book } from "./Book";
+import { Notepad } from "./Notepad";
+import { getPrice } from "../index";
 
 export class Product<T = any> implements IProduct<T> {
   title: string;
@@ -23,5 +26,14 @@ export class Product<T = any> implements IProduct<T> {
 
   getAmount(): number {
     return this.amount;
+  }
+  showData(entity: unknown): void {
+    if (entity instanceof Book) {
+      console.log(
+        `Книга - ${entity.title} - ${entity.author} - ${getPrice(entity)}`
+      );
+    } else if (entity instanceof Notepad) {
+      console.log(`Блокнот - ${getPrice(entity)}`);
+    }
   }
 }
