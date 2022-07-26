@@ -8,6 +8,7 @@ export class Product<T = any> implements IProduct<T> {
   amount: number;
   price?: number;
   type: T;
+  entity: unknown;
 
   constructor(title: string, amount: number, type: T, price?: number) {
     this.title = title;
@@ -27,13 +28,13 @@ export class Product<T = any> implements IProduct<T> {
   getAmount(): number {
     return this.amount;
   }
-  showData(entity: unknown): void {
-    if (entity instanceof Book) {
+  showData(): void {
+    if (this instanceof Book) {
       console.log(
-        `Книга - ${entity.title} - ${entity.author} - ${getPrice(entity)}`
+        `Книга - ${this.title} - ${this.title} - ${getPrice(this)}`
       );
-    } else if (entity instanceof Notepad) {
-      console.log(`Блокнот - ${getPrice(entity)}`);
+    } else if (this instanceof Notepad) {
+      console.log(`Блокнот - ${getPrice(this)}`);
     }
   }
 }
