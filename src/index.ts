@@ -4,7 +4,7 @@ import { Product } from "./entities/Product";
 import { MyMap } from "./common/MyMap";
 import { title } from "process";
 
-export const basket: any = [];
+export const basket: Array<Object> = [];
 
 // export const getPrice = (entity: Book | Notepad): string => {
 //   return entity.price ? entity.price.toString() : "не продается";
