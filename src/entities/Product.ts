@@ -1,7 +1,7 @@
 import { IProduct } from "../types/Product";
 import { Book } from "./Book";
 import { Notepad } from "./Notepad";
-import { getPrice } from "../index";
+import { basket } from "../index";
 
 export class Product<T = any> implements IProduct<T> {
   title: string;
@@ -29,12 +29,13 @@ export class Product<T = any> implements IProduct<T> {
     return this.amount;
   }
   showData(): void {
-    if (this instanceof Book) {
       console.log(
-        `Книга - ${this.title} - ${this.title} - ${getPrice(this)}`
+        `Товар ${this.title} стоимостью ${this.getPrice()}`
       );
-    } else if (this instanceof Notepad) {
-      console.log(`Блокнот - ${getPrice(this)}`);
-    }
+  }
+  buyIt(): void {
+    basket.push(this);
+    console.log('==========>');
+    console.log(basket);
   }
 }
