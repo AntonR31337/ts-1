@@ -6,17 +6,6 @@ import { title } from "process";
 
 export const basket: Array<Object> = [];
 
-// export const getPrice = (entity: Book | Notepad): string => {
-//   return entity.price ? entity.price.toString() : "не продается";
-// };
-
-// const getFrom = <T extends Product<any>>(
-//   obj: Record<string, T>,
-//   title: string
-// ): T | undefined => {
-//   return obj[title];
-// };
-
 const main = () => {
 
   const books = {
