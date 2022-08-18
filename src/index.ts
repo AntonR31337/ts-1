@@ -3,7 +3,7 @@ import { Notepad } from "./entities/Notepad";
 import { Product } from "./entities/Product";
 import { MyMap } from "./common/MyMap";
 import { MapKey } from "./types/mapkey";
-import { title } from "process";
+import { User } from "./types/user"
 
 // export const getPrice = (entity: Book | Notepad): string => {
 //   return entity.price ? entity.price.toString() : "не продается";
@@ -41,7 +41,10 @@ const main = () => {
     "title 1": new Book("title 2", "author 2", TypeBook.NEW, "fantasy", 1),
   });
   console.log(basket.getAll());
+
+  const User1 = new User("Anton", "Foraldo", "Anton", "01.01.1988", "qwerty")
   
+  console.log(User1);
 };
 
 main();

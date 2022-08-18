@@ -6,6 +6,7 @@
     "moduleResolution": "node",
     "module": "CommonJS",
     "esModuleInterop": true,
+    "allowJs": true,
   },
   "files": ["src/index.ts"]
 }
