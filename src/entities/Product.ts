@@ -3,18 +3,21 @@ import { Book } from "./Book";
 import { Notepad } from "./Notepad";
 // import { basket } from "../index";
 
-export class Product<T = any> implements IProduct<T> {
+export class Product<T = any> {
   title: string;
   amount: number;
   price?: number;
-  type: T;
-  entity: unknown;
+  protected _type: T;
 
   constructor(title: string, amount: number, type: T, price?: number) {
     this.title = title;
     this.amount = amount;
-    this.type = type;
+    this._type = type;
     this.price = price;
+  }
+
+  type(): T {
+    return this._type;
   }
 
   getPrice(): number | undefined {
@@ -29,7 +32,7 @@ export class Product<T = any> implements IProduct<T> {
     return this.amount;
   }
   showData(): void {
-    console.log(`${this.title} - ${this.type} - ${this.price}`);
+    console.log(`${this.title} - ${this._type} - ${this.price}`);
   }
   buy(amount: number, money: number): void {
     if (!this.canBuy()) {
