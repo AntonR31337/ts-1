@@ -16,7 +16,7 @@ const getFrom = <T extends Product<any>, K extends MapKey = string>(
   return obj[title];
 };
 
-class Basket extends MyMap {}
+export class Basket extends MyMap {}
 const basket = new Basket();
 
 const addToBasket = (quantity: any, item: any): void =>
