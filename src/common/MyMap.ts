@@ -1,4 +1,6 @@
-export class MyMap<K extends string | number | symbol = string, V = any> {
+import { MapKey } from "../types/mapkey";
+
+export class MyMap<K extends MapKey = string, V = any> {
   data = {} as Record<K, V>;
 
   set(key: K, value: V): void {
@@ -28,5 +30,9 @@ export class MyMap<K extends string | number | symbol = string, V = any> {
 
   clear(): void {
     this.data = {} as Record<K, V>;
+  }
+
+  setAll(arr: { key: K; value: V }[]): void {
+    arr.forEach(({ key, value }) => this.set(key, value));
   }
 }
