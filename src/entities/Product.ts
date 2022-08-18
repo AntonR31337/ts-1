@@ -1,7 +1,7 @@
 import { IProduct } from "../types/Product";
 import { Book } from "./Book";
 import { Notepad } from "./Notepad";
-import { basket } from "../index";
+// import { basket } from "../index";
 
 export class Product<T = any> implements IProduct<T> {
   title: string;
@@ -29,13 +29,20 @@ export class Product<T = any> implements IProduct<T> {
     return this.amount;
   }
   showData(): void {
-      console.log(
-        `Товар ${this.title} стоимостью ${this.getPrice()}`
-      );
+    console.log(`${this.title} - ${this.type} - ${this.price}`);
   }
-  buyIt(): void {
-    basket.push(this);
-    console.log('==========>');
-    console.log(basket);
+  buy(amount: number, money: number): void {
+    if (!this.canBuy()) {
+      console.log("Нет в наличии!");
+    }
+    if (this.amount < amount) {
+      console.log("На складе нет товара!");
+    }
+    if (this.price && this.price * amount < money) {
+      console.log(
+        "Недостаточно средств"
+      );
+    }
+    console.log("Товар приобретен!");
   }
 }
